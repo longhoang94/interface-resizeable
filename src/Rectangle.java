@@ -1,4 +1,4 @@
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -32,12 +32,18 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
+    @Override
     public double getArea() {
         return width * this.length;
     }
 
     public double getPerimeter() {
         return 2 * (width + this.length);
+    }
+
+    @Override
+    public double resize(double percent) {
+        return getArea() * percent;
     }
 
     @Override
