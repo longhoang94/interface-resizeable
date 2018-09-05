@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Application {
     public static void main(String[] args) {
         Shape[] shapes = new Shape[3];
@@ -5,9 +7,12 @@ public class Application {
         shapes[1] = new Square(3, "yellow", true);
         shapes[2] = new Rectangle(4, 6, "red", false);
 
+        Random rd = new Random(100);
+        int percent = rd.nextInt(50) + 1;
+
         for (Shape shape : shapes) {
             System.out.println("before resize: " + shape.getArea());
-            System.out.println("after resize: " + shape.resize(0.5));
+            System.out.println("after resize: " + shape.resize(percent));
         }
     }
 }
